@@ -23,10 +23,35 @@
   <meta name="apple-mobile-web-app-title" content="portfolio">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-  <title>portfolio</title>
+  <title>Abdul Haseeb</title>
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.6.4/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<!-- <script src="https://www.gstatic.com/firebasejs/8.6.4/firebase-analytics.js"></script> -->
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyBIx0yP8yXib1IawIpxKdgXaeSdGwrOoX0",
+    authDomain: "my-portfolio-96f42.firebaseapp.com",
+    projectId: "my-portfolio-96f42",
+    storageBucket: "my-portfolio-96f42.appspot.com",
+    messagingSenderId: "203906570435",
+    appId: "1:203906570435:web:f07c83e4d449fd7b24ea76",
+    measurementId: "G-E8Q5C5MLX7"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  // firebase.analytics();
+</script>
+
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
