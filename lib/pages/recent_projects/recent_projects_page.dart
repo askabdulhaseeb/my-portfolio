@@ -13,13 +13,10 @@ class RecentProjectsPage extends StatefulWidget {
 class _RecentProjectsPageState extends State<RecentProjectsPage> {
   List<RecentProjects> _recentProjects = [];
   Future _getData() async {
-    QuerySnapshot docs = await RecentProjectsFirebaseMethods().getAllProjects();
-    print(docs.docs.length);
-    print(docs.docs[0]['title']);
-    docs.docs.forEach((element) {
-      print(element.data());
+    final QuerySnapshot? docs =
+        await RecentProjectsFirebaseMethods().getAllProjects();
+    docs!.docs.forEach((element) {
       _recentProjects.add(RecentProjects.fromDocument(element));
-      // _recentProjects.add(RecentProjects.fromMap(element.data()));
       setState(() {});
     });
     setState(() {});

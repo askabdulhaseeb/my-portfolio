@@ -1,5 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-
 class RecentProjects {
   final String title;
   final String description;
@@ -21,11 +19,11 @@ class RecentProjects {
 
   factory RecentProjects.fromDocument(docs) {
     return RecentProjects(
-      title: docs?.data()['title'] ?? '',
-      description: docs?.data()['description'] ?? '',
-      thumnail: docs?.data()['thumnail'] ?? '',
-      timestamp: docs?.data()['timestamp'] ?? '',
-      developers: List<String>.from(docs?.data()['developers'] ?? ''),
+      title: (docs.data()['title'] ?? '').toString(),
+      description: (docs?.data()['description'] ?? '').toString(),
+      thumnail: (docs?.data()['thumnail'] ?? '').toString(),
+      timestamp: (docs?.data()['timestamp'] ?? '').toString(),
+      developers: List<String>.from(docs?.data()['developers']),
       projectURL: List<String>.from(docs?.data()['project_URL'] ?? ''),
       projectType: List<String>.from(docs?.data()['project_type'] ?? ''),
     );

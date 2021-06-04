@@ -11,9 +11,9 @@ class Developer {
 
   factory Developer.fromDocument(docs) {
     return Developer(
-      uid: docs?.data()['uid'] ?? '',
-      name: docs?.data()['name'] ?? '',
-      imageURL: docs?.data()['imageURL'] ?? '',
+      uid: (docs?.data()['uid'] ?? '').toString(),
+      name: (docs?.data()['name'] ?? '').toString(),
+      imageURL: (docs?.data()['imageURL'] ?? '').toString(),
     );
   }
 }

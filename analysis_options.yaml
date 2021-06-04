@@ -2,3 +2,4 @@
 
 # linter:
 #   rules:
+#     argument_type_not_assignable: false
