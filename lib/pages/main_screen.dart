@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/pages/about/about.dart';
 import 'package:portfolio/pages/contact/contact.dart';
 import 'package:portfolio/pages/home/home.dart';
+import 'package:portfolio/pages/recent_projects/recent_projects_page.dart';
 import 'package:portfolio/pages/services/services.dart';
 
 class MainScreen extends StatelessWidget {
@@ -16,6 +17,7 @@ class MainScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             HomePage(),
+            RecentProjectsPage(),
             AboutPage(),
             ServicePage(),
             ContactPage(),
