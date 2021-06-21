@@ -10,7 +10,7 @@ class ServicePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Container(
-      padding: const EdgeInsets.all(100),
+      padding: const EdgeInsets.symmetric(horizontal: 100),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -19,7 +19,7 @@ class ServicePage extends StatelessWidget {
           SizedBox(
             width: size.width / 1.5,
             child: SelectableText(
-              '''I have a group of experts and together as a team we cover almost all the design and development areas of Mobile Applications, Websites (Both Static and Dynamic) and Desktop Applications. We also provide services in UI/UX designs. Along with all these skillful services, we focus on client’s requirements and most importantly on client’s satisfaction, to build long-term professional relationships with our clients.''',
+              '''I have a group of experts and together as a team, we cover almost all the design and development areas of Mobile Applications, Websites (Both Static and Dynamic) and Desktop Applications. We also provide services in UI/UX designs. Along with all these skillful services, we focus on client’s requirements and most importantly on client’s satisfaction, to build long-term professional relationships with our clients.''',
             ),
           ),
           const SizedBox(height: 40),
@@ -31,28 +31,28 @@ class ServicePage extends StatelessWidget {
                 icon: Icons.phone_android_rounded,
                 title: 'App Developer',
                 subtitle:
-                    'I will deliver Native as well as Hybrid Mobile Apps according to your requirements.',
+                    'We are capable of delivering Native, as well as Hybrid Mobile Applications as per the requirments of our clients.',
               ),
               ServiceCard(
                 color: Colors.blue,
                 icon: Icons.web_sharp,
                 title: 'Web Developer',
                 subtitle:
-                    'I will deliver Static as well as Dynamic websites according to your requirements.',
+                    'We are capable of delivering Static, as well as Dynamic websites as per the requirments of our clients.',
               ),
               ServiceCard(
                 color: Colors.green,
                 icon: Icons.computer,
                 title: 'Desktop Developer',
                 subtitle:
-                    'I will deliver application for Windows/Mac/Linus according to your requirements.',
+                    'We are capable of delivering the Desktop applications (for Windows/Mac/Linus) as per the requirments of our clients.',
               ),
               ServiceCard(
                 color: Colors.red,
                 icon: Icons.phone_android_outlined,
                 title: 'UI/UX Design',
                 subtitle:
-                    'I will deliver design Adobe XD and Figma designs according to your requirements.',
+                    'We are capable of delivering Adobe XD and Figma designs for an interactive and responcive applications or websites as per the requirments of our clients.',
               ),
             ],
           )

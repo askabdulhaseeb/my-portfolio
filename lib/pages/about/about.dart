@@ -106,7 +106,7 @@ class AboutMeTextDetail extends StatelessWidget {
         CustomizeUnderlineText(size: size, title: 'About Me'),
         SizedBox(
           child: SelectableText(
-            '''I am an enthusiastic programmer with the experience in Android/iOS mobile app development. I have experiance in Flutter, Firebase and have knowledge about different API's Integration as well. I am always eager to learn new tools and techniques and the best part is that I enjoy it all. This is just an intro because I am far more than that.''',
+            '''I am an enthusiastic programmer with the experience in Android/iOS mobile app development. I have experiance in Flutter, Firebase and have knowledge about different API's Integrations as well. I am always eager to learn new tools and techniques and the best part is that I enjoy it all. This is just an intro because I am far more than that.''',
             style: TextStyle(
               fontWeight: FontWeight.w300,
             ),

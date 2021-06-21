@@ -83,7 +83,7 @@ class ContactPage extends StatelessWidget {
             Icon(FontAwesomeIcons.copyright, size: 16),
             const SizedBox(width: 10),
             Text('2020-${DateTime.now().year} '),
-            Text('All rights reserved '),
+            Text('All rights reserved.'),
           ],
         ),
       ],
