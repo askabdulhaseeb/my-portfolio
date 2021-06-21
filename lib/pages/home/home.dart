@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/configs/app_images.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatelessWidget {
   static const routeName = '/HomePage';
@@ -8,9 +7,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future _launchURL(String url) async => await canLaunch(url)
-        ? await launch(url)
-        : throw 'Could not launch $url';
     final Size size = MediaQuery.of(context).size;
     return SizedBox(
       height: size.height,
@@ -63,10 +59,7 @@ class HomePage extends StatelessWidget {
                 ),
                 const SizedBox(height: 50),
                 OutlinedButton(
-                  onPressed: () {
-                    _launchURL(
-                        'https://www.linkedin.com/in/abdul-haseeb-073682183/');
-                  },
+                  onPressed: () {},
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 30, vertical: 10),

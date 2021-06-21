@@ -11,7 +11,9 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.all(100),
+      padding: (size.width > 800)
+          ? const EdgeInsets.all(100)
+          : const EdgeInsets.all(20),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -104,7 +106,7 @@ class AboutMeTextDetail extends StatelessWidget {
         CustomizeUnderlineText(size: size, title: 'About Me'),
         SizedBox(
           child: SelectableText(
-            'A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add one idea at a time to your broader argument.',
+            '''I am an enthusiastic programmer with the experience in Android/iOS mobile app development. I have experiance in Flutter, Firebase and have knowledge about different API's Integration as well. I am always eager to learn new tools and techniques and the best part is that I enjoy it all. This is just an intro because I am far more than that.''',
             style: TextStyle(
               fontWeight: FontWeight.w300,
             ),

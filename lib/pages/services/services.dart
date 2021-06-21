@@ -17,9 +17,9 @@ class ServicePage extends StatelessWidget {
         children: [
           CustomizeUnderlineText(size: size, title: 'Services'),
           SizedBox(
-            width: size.width / 2,
+            width: size.width / 1.5,
             child: SelectableText(
-              'A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add one idea at a time to your broader argument.',
+              '''I have a group of experts and together as a team we cover almost all the design and development areas of Mobile Applications, Websites (Both Static and Dynamic) and Desktop Applications. We also provide services in UI/UX designs. Along with all these skillful services, we focus on client’s requirements and most importantly on client’s satisfaction, to build long-term professional relationships with our clients.''',
             ),
           ),
           const SizedBox(height: 40),
