@@ -17,9 +17,9 @@ class MainScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             HomePage(),
-            RecentProjectsPage(),
             AboutPage(),
             ServicePage(),
+            RecentProjectsPage(),
             ContactPage(),
           ],
         ),
