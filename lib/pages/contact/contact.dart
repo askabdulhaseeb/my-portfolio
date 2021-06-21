@@ -75,7 +75,17 @@ class ContactPage extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 60),
+        const SizedBox(height: 30),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Icon(FontAwesomeIcons.copyright, size: 16),
+            const SizedBox(width: 10),
+            Text('2020-${DateTime.now().year} '),
+            Text('All rights reserved '),
+          ],
+        ),
       ],
     );
   }
