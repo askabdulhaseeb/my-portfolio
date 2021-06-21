@@ -18,7 +18,7 @@ class ContactPage extends StatelessWidget {
         const SizedBox(height: 120),
         Center(
           child: Text(
-            'Wants to link witm me?',
+            'Wants to link with me?',
             style: TextStyle(
               color: Theme.of(context).primaryColor,
               fontWeight: FontWeight.w300,
@@ -88,6 +88,9 @@ class HireMeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Future _launchURL(String url) async => await canLaunch(url)
+        ? await launch(url)
+        : throw 'Could not launch $url';
     return Container(
       height: 300,
       width: double.infinity,
@@ -110,7 +113,10 @@ class HireMeWidget extends StatelessWidget {
           ),
           const SizedBox(height: 30),
           ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                _launchURL(
+                    'https://www.linkedin.com/in/abdul-haseeb-073682183/');
+              },
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(
                   Colors.white,

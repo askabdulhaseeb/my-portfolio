@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'dart:html' as html;
 import 'package:portfolio/configs/app_images.dart';
 import 'package:portfolio/pages/widgets/customiz_underline_text.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({Key? key}) : super(key: key);
@@ -40,13 +42,18 @@ class AboutMeButtonWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Future _launchURL(String url) async => await canLaunch(url)
+        ? await launch(url)
+        : throw 'Could not launch $url';
     return Wrap(
       direction: Axis.horizontal,
       children: [
         Container(
           margin: const EdgeInsets.all(10),
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              _launchURL('https://www.linkedin.com/in/abdul-haseeb-073682183/');
+            },
             child: Padding(
               padding: const EdgeInsets.all(12),
               child: Text('  Contact Me  '),
@@ -61,11 +68,15 @@ class AboutMeButtonWidgets extends StatelessWidget {
         Container(
           margin: const EdgeInsets.all(10),
           child: OutlinedButton(
-            onPressed: () {},
+            onPressed: () {
+              html.window.open(
+                  'https://drive.google.com/file/d/1abY079fdgZ2VkNOAppX3KyY_wr3MuaGu/view?usp=sharing',
+                  "pdf");
+            },
             child: Padding(
               padding: const EdgeInsets.all(12),
               child: Text(
-                'Download CV',
+                '   Resume   ',
                 style: TextStyle(color: Theme.of(context).primaryColor),
               ),
             ),

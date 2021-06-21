@@ -32,45 +32,47 @@ class _RecentProjectsPageState extends State<RecentProjectsPage> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    return Container(
-      padding: (size.width > 800)
-          ? const EdgeInsets.all(120)
-          : const EdgeInsets.all(40),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomizeUnderlineText(size: size, title: 'Recent Projects'),
-          SizedBox(
-            height: 400,
-            child: ListView.builder(
-              // itemCount: 4,
-              itemCount: _recentProjects.length,
-              itemBuilder: (context, index) {
-                return Container(
-                  margin: const EdgeInsets.all(10),
-                  child: Row(
-                    children: [
-                      ProjectCard(projects: _recentProjects[index]),
-                      const SizedBox(width: 20),
-                      Container(
-                        height: size.width * 0.16,
-                        width: (size.width > 900) ? 300 : 200,
-                        child: Text(
-                          _recentProjects[index].description,
-                          // maxLines: (size.width > 900) ? 10 : 6,
-                          maxLines: 12,
-                          overflow: TextOverflow.ellipsis,
+    return (_recentProjects.length <= 0)
+        ? Container()
+        : Container(
+            padding: (size.width > 800)
+                ? const EdgeInsets.all(120)
+                : const EdgeInsets.all(40),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomizeUnderlineText(size: size, title: 'Recent Projects'),
+                SizedBox(
+                  height: 400,
+                  child: ListView.builder(
+                    // itemCount: 4,
+                    itemCount: _recentProjects.length,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        margin: const EdgeInsets.all(10),
+                        child: Row(
+                          children: [
+                            ProjectCard(projects: _recentProjects[index]),
+                            const SizedBox(width: 20),
+                            Container(
+                              height: size.width * 0.16,
+                              width: (size.width > 900) ? 300 : 200,
+                              child: Text(
+                                _recentProjects[index].description,
+                                // maxLines: (size.width > 900) ? 10 : 6,
+                                maxLines: 12,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            )
+                          ],
                         ),
-                      )
-                    ],
+                      );
+                    },
                   ),
-                );
-              },
+                ),
+              ],
             ),
-          ),
-        ],
-      ),
-    );
+          );
   }
 }
