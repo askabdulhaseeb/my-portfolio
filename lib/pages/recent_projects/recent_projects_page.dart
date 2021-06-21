@@ -1,6 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/database/recent_projects_firebase_methods.dart';
+import 'package:portfolio/configs/app_images.dart';
 import 'package:portfolio/models/recent_project.dart';
 import 'package:portfolio/pages/recent_projects/project_card.dart';
 import 'package:portfolio/pages/widgets/customiz_underline_text.dart';
@@ -12,22 +11,38 @@ class RecentProjectsPage extends StatefulWidget {
 }
 
 class _RecentProjectsPageState extends State<RecentProjectsPage> {
-  List<RecentProjects> _recentProjects = [];
-  Future _getData() async {
-    final QuerySnapshot? docs =
-        await RecentProjectsFirebaseMethods().getAllProjects();
-    docs!.docs.forEach((element) {
-      _recentProjects.add(RecentProjects.fromDocument(element));
-      setState(() {});
-    });
-    setState(() {});
-  }
-
-  @override
-  void initState() {
-    _getData();
-    super.initState();
-  }
+  List<RecentProjects> _recentProjects = [
+    RecentProjects(
+      title: 'SafarKar - Travel & Explore PK',
+      description:
+          'Users can make trip plans and can also view others plan\nLanguage: Flutter, Dart\nDatabase: Firebase\nGoogle direction, places, map API\n',
+      thumnail: iSafarKarLogo,
+    ),
+    RecentProjects(
+      title: 'Review App',
+      description:
+          'Users can add product and other users can add/view video review about that product.\nLanguage: Flutter, Dart\nDatabase: Firebase',
+      thumnail: iReviewLogo,
+    ),
+    RecentProjects(
+      title: 'NorthWest Reverse Mortgage App',
+      description:
+          'Users can calculate the mortgage value.\nLanguage: Flutter, Dart\nDatabase: Firebase',
+      thumnail: iNorthwestLogo,
+    ),
+    RecentProjects(
+      title: 'Golden Time Treading App',
+      description:
+          'Users can Tread realtime. Users can also chat with others.\nLanguage: Flutter, Dart\nDatabase: Firebase',
+      thumnail: iGoldenTimeTreadingLogo,
+    ),
+    RecentProjects(
+      title: 'Easyio App',
+      description:
+          'Online POS for any shop. Users can generate bill search item and details.\nLanguage: Flutter, Dart\nDatabase: Firebase',
+      thumnail: iEasyioLogo,
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -36,38 +51,20 @@ class _RecentProjectsPageState extends State<RecentProjectsPage> {
         ? Container()
         : Container(
             padding: (size.width > 800)
-                ? const EdgeInsets.all(120)
-                : const EdgeInsets.all(40),
+                ? const EdgeInsets.symmetric(horizontal: 120)
+                : const EdgeInsets.symmetric(horizontal: 40),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomizeUnderlineText(size: size, title: 'Recent Projects'),
                 SizedBox(
-                  height: 400,
+                  height: 300,
                   child: ListView.builder(
-                    // itemCount: 4,
+                    scrollDirection: Axis.horizontal,
                     itemCount: _recentProjects.length,
                     itemBuilder: (context, index) {
-                      return Container(
-                        margin: const EdgeInsets.all(10),
-                        child: Row(
-                          children: [
-                            ProjectCard(projects: _recentProjects[index]),
-                            const SizedBox(width: 20),
-                            Container(
-                              height: size.width * 0.16,
-                              width: (size.width > 900) ? 300 : 200,
-                              child: Text(
-                                _recentProjects[index].description,
-                                // maxLines: (size.width > 900) ? 10 : 6,
-                                maxLines: 12,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            )
-                          ],
-                        ),
-                      );
+                      return ProjectCard(projects: _recentProjects[index]);
                     },
                   ),
                 ),
