@@ -18,7 +18,7 @@ class ContactPage extends StatelessWidget {
         const SizedBox(height: 120),
         Center(
           child: Text(
-            'Wants to link with me?',
+            'Wants to Connect with me?',
             style: TextStyle(
               color: Theme.of(context).primaryColor,
               fontWeight: FontWeight.w300,
@@ -101,7 +101,10 @@ class HireMeWidget extends StatelessWidget {
         children: [
           Text(
             'Have you any project in mind?',
-            style: TextStyle(fontWeight: FontWeight.w800, fontSize: 32),
+            style: TextStyle(
+              fontWeight: FontWeight.w800,
+              fontSize: 32,
+            ),
           ),
           const SizedBox(height: 10),
           SizedBox(

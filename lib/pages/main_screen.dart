@@ -53,10 +53,8 @@ class _MainScreenState extends State<MainScreen> {
       return ContactPage();
     } else if (i == 5) {
       return SizedBox(
-        height: 40.0,
+        height: 20.0,
       );
-    } else if (i == 6) {
-      return ContactPage();
     } else {
       return Container();
     }

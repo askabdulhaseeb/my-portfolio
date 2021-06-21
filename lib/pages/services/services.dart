@@ -31,28 +31,28 @@ class ServicePage extends StatelessWidget {
                 icon: Icons.phone_android_rounded,
                 title: 'App Developer',
                 subtitle:
-                    'A paragraph is a series of related sentences developing a central idea, called the topic.',
+                    'I will deliver Native as well as Hybrid Mobile Apps according to your requirements.',
               ),
               ServiceCard(
                 color: Colors.blue,
                 icon: Icons.web_sharp,
                 title: 'Web Developer',
                 subtitle:
-                    'A paragraph is a series of related sentences developing a central idea, called the topic.',
+                    'I will deliver Static as well as Dynamic websites according to your requirements.',
               ),
               ServiceCard(
                 color: Colors.green,
                 icon: Icons.computer,
                 title: 'Desktop Developer',
                 subtitle:
-                    'A paragraph is a series of related sentences developing a central idea, called the topic.',
+                    'I will deliver application for Windows/Mac/Linus according to your requirements.',
               ),
               ServiceCard(
                 color: Colors.red,
                 icon: Icons.phone_android_outlined,
                 title: 'UI/UX Design',
                 subtitle:
-                    'A paragraph is a series of related sentences developing a central idea, called the topic.',
+                    'I will deliver design Adobe XD and Figma designs according to your requirements.',
               ),
             ],
           )
