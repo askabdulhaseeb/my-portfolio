@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio/configs/contact_handle.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactPage extends StatelessWidget {
@@ -19,9 +20,11 @@ class ContactPage extends StatelessWidget {
         Center(
           child: Text(
             'Wants to Connect with me?',
+            overflow: TextOverflow.ellipsis,
             style: TextStyle(
               color: Theme.of(context).primaryColor,
-              fontWeight: FontWeight.w300,
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
               letterSpacing: 1,
             ),
           ),
@@ -34,7 +37,7 @@ class ContactPage extends StatelessWidget {
               hoverColor: Theme.of(context).primaryColor,
               splashColor: Theme.of(context).primaryColor,
               onPressed: () {
-                _launchURL('https://www.facebook.com/rana.abdulhaseeb.5/');
+                _launchURL(facebookPagehandle);
               },
               icon: Icon(FontAwesomeIcons.facebookF),
             ),
@@ -42,36 +45,19 @@ class ContactPage extends StatelessWidget {
             IconButton(
               hoverColor: Theme.of(context).primaryColor,
               splashColor: Theme.of(context).primaryColor,
-              onPressed: () {},
-              icon: Icon(FontAwesomeIcons.twitter),
+              onPressed: () {
+                _popupMessage(context: context, title: 'WhatsApp');
+              },
+              icon: Icon(FontAwesomeIcons.whatsapp),
             ),
             const SizedBox(width: 20),
             IconButton(
               hoverColor: Theme.of(context).primaryColor,
               splashColor: Theme.of(context).primaryColor,
               onPressed: () {
-                _launchURL(
-                    'https://www.linkedin.com/in/abdul-haseeb-073682183/');
+                _popupMessage(context: context, title: 'Skype');
               },
-              icon: Icon(FontAwesomeIcons.linkedinIn),
-            ),
-            const SizedBox(width: 20),
-            IconButton(
-              hoverColor: Theme.of(context).primaryColor,
-              splashColor: Theme.of(context).primaryColor,
-              onPressed: () {
-                _launchURL('https://github.com/askabdulhaseeb');
-              },
-              icon: Icon(FontAwesomeIcons.github),
-            ),
-            const SizedBox(width: 20),
-            IconButton(
-              hoverColor: Theme.of(context).primaryColor,
-              splashColor: Theme.of(context).primaryColor,
-              onPressed: () {
-                _launchURL('https://www.instagram.com/r_abdulhaseeb/');
-              },
-              icon: Icon(FontAwesomeIcons.instagram),
+              icon: Icon(FontAwesomeIcons.skype),
             ),
           ],
         ),
@@ -89,6 +75,43 @@ class ContactPage extends StatelessWidget {
       ],
     );
   }
+
+  Future<dynamic> _popupMessage(
+      {required String title, required BuildContext context}) {
+    return showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: Colors.white,
+        content: FittedBox(
+          child: Column(
+            children: [
+              SelectableText(
+                title,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                ),
+              ),
+              SelectableText(
+                '+92 315 1119144',
+                style: TextStyle(
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                ),
+              ),
+            ],
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text('Close'),
+          )
+        ],
+      ),
+    );
+  }
 }
 
 class HireMeWidget extends StatelessWidget {
@@ -104,13 +127,15 @@ class HireMeWidget extends StatelessWidget {
     return Container(
       height: 300,
       width: double.infinity,
+      padding: const EdgeInsets.all(16),
       alignment: Alignment.center,
       color: Theme.of(context).primaryColor,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Have you any project in mind?',
+            'Want to Donate for this Noble Cause?',
+            textAlign: TextAlign.center,
             style: TextStyle(
               fontWeight: FontWeight.w800,
               fontSize: 32,
@@ -127,8 +152,32 @@ class HireMeWidget extends StatelessWidget {
           const SizedBox(height: 30),
           ElevatedButton(
               onPressed: () {
-                _launchURL(
-                    'https://www.linkedin.com/in/abdul-haseeb-073682183/');
+                showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    backgroundColor: Colors.white,
+                    content: Container(
+                      width: 320,
+                      padding: const EdgeInsets.all(16),
+                      child: SelectableText(
+                        'Summit Bank\nTitle: Hassan Farooqi Khan\nAc # 1-5-1-20391-714-160181\nIBAN # 0501387140160181',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Theme.of(context).scaffoldBackgroundColor,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text('Close'),
+                      )
+                    ],
+                  ),
+                );
               },
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(
@@ -139,7 +188,7 @@ class HireMeWidget extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
                 child: Text(
-                  'HIRE ME',
+                  'DONATE',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ))

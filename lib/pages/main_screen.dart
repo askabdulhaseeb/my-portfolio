@@ -3,7 +3,6 @@ import 'package:portfolio/animation/entrance_fader.dart';
 import 'package:portfolio/pages/about/about.dart';
 import 'package:portfolio/pages/contact/contact.dart';
 import 'package:portfolio/pages/home/home.dart';
-import 'package:portfolio/pages/recent_projects/recent_projects_page.dart';
 import 'package:portfolio/pages/services/services.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'dart:html' as html;
@@ -20,19 +19,12 @@ class _MainScreenState extends State<MainScreen> {
   ItemScrollController _itemScrollController = ItemScrollController();
   ItemPositionsListener _itemPositionListener = ItemPositionsListener.create();
 
-  final List<String> _sectionsName = [
-    "Home",
-    "About",
-    "Services",
-    "Projects",
-    "Contact"
-  ];
+  final List<String> _sectionsName = ["Home", "About", "Services", "Contact"];
 
   final List<IconData> _sectionsIcons = [
     Icons.home,
     Icons.person,
     Icons.settings,
-    Icons.build,
     Icons.phone,
   ];
 
@@ -48,10 +40,8 @@ class _MainScreenState extends State<MainScreen> {
     } else if (i == 2) {
       return ServicePage();
     } else if (i == 3) {
-      return RecentProjectsPage();
-    } else if (i == 4) {
       return ContactPage();
-    } else if (i == 5) {
+    } else if (i == 4) {
       return SizedBox(
         height: 20.0,
       );
@@ -96,32 +86,48 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        title: (MediaQuery.of(context).size.width > 500)
+            ? SelectableText(
+                ' WhatsApp/Skype: +92 315 1119144',
+                style: TextStyle(
+                  fontWeight: FontWeight.w300,
+                  color: Theme.of(context).accentColor,
+                ),
+              )
+            : SelectableText(
+                ' WhatsApp/Skype:\n+92 315 1119144',
+                style: TextStyle(
+                  fontWeight: FontWeight.w300,
+                  color: Theme.of(context).accentColor,
+                ),
+              ),
+        centerTitle: false,
         elevation: 0,
         actions: [
           for (int i = 0; i < _sectionsName.length; i++)
             _appBarActions(_sectionsName[i], i, _sectionsIcons[i]),
-          EntranceFader(
-            offset: Offset(0, -20),
-            delay: Duration(seconds: 3),
-            duration: Duration(seconds: 1),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: MaterialButton(
-                hoverColor: Theme.of(context).primaryColor.withAlpha(150),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5.0),
-                    side: BorderSide(color: Theme.of(context).primaryColor)),
-                onPressed: () {
-                  html.window.open(
-                      'https://drive.google.com/file/d/1abY079fdgZ2VkNOAppX3KyY_wr3MuaGu/view?usp=sharing',
-                      "pdf");
-                },
-                child: Text(
-                  "Resume",
-                ),
-              ),
-            ),
-          ),
+          // EntranceFader(
+          //   offset: Offset(0, -20),
+          //   delay: Duration(seconds: 3),
+          //   duration: Duration(seconds: 1),
+          //   child: Padding(
+          //     padding: const EdgeInsets.all(8.0),
+          //     child: MaterialButton(
+          //       hoverColor: Theme.of(context).primaryColor.withAlpha(150),
+          //       shape: RoundedRectangleBorder(
+          //           borderRadius: BorderRadius.circular(5.0),
+          //           side: BorderSide(color: Theme.of(context).primaryColor)),
+          //       onPressed: () {
+          //         html.window.open(
+          //             'https://drive.google.com/file/d/1abY079fdgZ2VkNOAppX3KyY_wr3MuaGu/view?usp=sharing',
+          //             "pdf");
+          //       },
+          //       child: Text(
+          //         "Resume",
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
       body: Container(

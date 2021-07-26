@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/configs/app_images.dart';
+import 'package:portfolio/configs/contact_handle.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatelessWidget {
@@ -16,31 +17,77 @@ class HomePage extends StatelessWidget {
       width: double.infinity,
       child: Stack(
         children: [
-          HomePageBackground(size: size),
-          Positioned(
-            right: (size.width < 830)
-                ? (size.width < 600)
-                    ? size.width * 0.001
-                    : size.width * 0.13
-                : size.width * 0.23,
-            bottom: 0,
-            child: SizedBox(
-              height: size.height * 0.9,
-              child: Image.asset(iPersonImage),
+          if (size.width > 500) HomePageBackground(size: size),
+          if (size.width > 500)
+            Positioned(
+              // right: (size.width < 830)
+              //     ? (size.width < 600)
+              //         ? size.width * 0.001
+              //         : size.width * 0.13
+              //     : size.width * 0.23,
+              right: 20,
+              bottom: 20,
+              child: SizedBox(
+                height: size.height * 0.9,
+                width: size.width * 0.5,
+                child: Image.asset(iQuranImage),
+              ),
             ),
-          ),
           Positioned(
             left: size.width / 12,
-            top: size.height / 2.5,
+            top: size.height / 10,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                SelectableText(
+                  '''خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ   ''',
+                  maxLines: 3,
+                  minLines: 1,
+                  style: TextStyle(
+                    fontSize: (size.width > 830) ? 60 : 30,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                SelectableText(
+                  '“The best of you are those who learn the Quran and teach it.”',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white70,
+                    wordSpacing: 3,
+                    fontSize: (size.width > 830) ? 14 : 10,
+                  ),
+                ),
+                SelectableText(
+                  '"تم سب میں بہتر وہ ہے جو قرآن مجید پڑھے اور پڑھائے"',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white70,
+                    wordSpacing: 3,
+                    fontSize: (size.width > 830) ? 20 : 16,
+                  ),
+                ),
+                SelectableText(
+                  '( Ṣaḥīḥ al-Bukhārī 5027 )',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white70,
+                    wordSpacing: 3,
+                    // fontSize: (size.width > 830) ? 20 : 16,
+                  ),
+                ),
+                if (size.width <= 500)
+                  SizedBox(
+                    height: 300,
+                    width: 300,
+                    child: Image.asset(iQuranImage),
+                  ),
                 Text(
-                  'Hello',
+                  'Welcome to',
                   style: TextStyle(color: Colors.white70, letterSpacing: 2),
                 ),
                 SelectableText(
-                  '''I'm Abdul Haseeb''',
+                  '''Hafiz Quran Academy''',
                   maxLines: 3,
                   minLines: 1,
                   style: TextStyle(
@@ -50,7 +97,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Flutter Mobile Application Developer',
+                  'Your Online Quran Teacher',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontWeight: FontWeight.w300,
@@ -63,8 +110,7 @@ class HomePage extends StatelessWidget {
                 const SizedBox(height: 50),
                 OutlinedButton(
                   onPressed: () {
-                    _launchURL(
-                        'https://www.linkedin.com/in/abdul-haseeb-073682183/');
+                    _launchURL(facebookPagehandle);
                   },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
