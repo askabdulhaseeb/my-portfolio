@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/configs/app_images.dart';
 import 'package:portfolio/pages/widgets/customiz_underline_text.dart';
 
 import 'service_card.dart';
@@ -20,7 +19,7 @@ class ServicePage extends StatelessWidget {
           SizedBox(
             width: size.width / 1.5,
             child: SelectableText(
-              '''I teach Nazra Quran, Norani Quida, Namaz, Quran Recitation, Hadees and Duas to childern and learners of any age and gender. I have experience in teaching for more than 10 years in this field. You may feel free to contact me regarding the following services.''',
+              '''I have a group of experts and together as a team, we cover almost all the design and development areas of Mobile Applications, Websites (Both Static and Dynamic) and Desktop Applications. We also provide services in UI/UX designs. Along with all these skillful services, we focus on client’s requirements and most importantly on client’s satisfaction, to build long-term professional relationships with our clients.''',
             ),
           ),
           const SizedBox(height: 40),
@@ -29,37 +28,34 @@ class ServicePage extends StatelessWidget {
             children: [
               ServiceCard(
                 color: Theme.of(context).primaryColor,
-                assetsImage: iQuranImage,
-                title: 'Nazra Quran',
+                icon: Icons.phone_android_rounded,
+                title: 'App Developer',
+                subtitle:
+                    'We are capable of delivering Native, as well as Hybrid Mobile Applications as per the requirments of our clients.',
               ),
               ServiceCard(
                 color: Colors.blue,
-                assetsImage: iNooraniQuidaBG,
-                title: 'Noorani Qaida',
+                icon: Icons.web_sharp,
+                title: 'Web Developer',
+                subtitle:
+                    'We are capable of delivering Static, as well as Dynamic websites as per the requirments of our clients.',
+              ),
+              ServiceCard(
+                color: Colors.green,
+                icon: Icons.computer,
+                title: 'Desktop Developer',
+                subtitle:
+                    'We are capable of delivering the Desktop applications (for Windows/Mac/Linus) as per the requirments of our clients.',
               ),
               ServiceCard(
                 color: Colors.red,
-                assetsImage: iQuranImage,
-                title: 'Quran with Translation',
-              ),
-              ServiceCard(
-                color: Colors.brown,
-                assetsImage: iNamazBG,
-                title: 'Namaz',
-              ),
-              ServiceCard(
-                color: Colors.purple,
-                assetsImage: iQuranImage,
-                title: 'Quran Recitation',
-              ),
-              ServiceCard(
-                color: Colors.deepPurpleAccent,
-                assetsImage: iHadeesBG,
-                title: 'Hadees/\nDUAS',
+                icon: Icons.phone_android_outlined,
+                title: 'UI/UX Design',
+                subtitle:
+                    'We are capable of delivering Adobe XD and Figma designs for an interactive and responcive applications or websites as per the requirments of our clients.',
               ),
             ],
-          ),
-          const SizedBox(height: 40),
+          )
         ],
       ),
     );

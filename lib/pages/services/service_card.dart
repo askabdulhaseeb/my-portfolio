@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/configs/app_images.dart';
 
 class ServiceCard extends StatelessWidget {
+  final IconData icon;
   final String title;
-  final String assetsImage;
+  final String subtitle;
   final Color color;
   const ServiceCard({
     Key? key,
+    required this.icon,
     required this.title,
-    required this.assetsImage,
+    required this.subtitle,
     required this.color,
   }) : super(key: key);
 
@@ -21,30 +23,43 @@ class ServiceCard extends StatelessWidget {
         child: Stack(
           children: [
             Container(
-              height: 150,
-              width: 250,
+              height: 200,
+              width: 320,
               child: Image(
-                image: AssetImage(assetsImage),
+                image: AssetImage(iSetup),
                 fit: BoxFit.cover,
               ),
             ),
             Container(
-              height: 150,
-              width: 250,
+              height: 200,
+              width: 320,
               color: color.withOpacity(0.8),
             ),
             Container(
-              height: 150,
-              width: 250,
+              height: 200,
+              width: 320,
               padding: const EdgeInsets.all(14),
               alignment: Alignment.center,
-              child: Text(
-                title,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(icon),
+                  const SizedBox(height: 6),
+                  Text(
+                    title,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                  Text(
+                    subtitle,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 4,
+                  ),
+                ],
               ),
             ),
           ],

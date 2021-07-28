@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:html' as html;
 import 'package:portfolio/configs/app_images.dart';
-import 'package:portfolio/configs/contact_handle.dart';
 import 'package:portfolio/pages/widgets/customiz_underline_text.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -55,7 +54,7 @@ class AboutMeButtonWidgets extends StatelessWidget {
           margin: const EdgeInsets.all(10),
           child: ElevatedButton(
             onPressed: () {
-              _launchURL(facebookPagehandle);
+              _launchURL('https://www.linkedin.com/in/abdul-haseeb-073682183/');
             },
             child: Padding(
               padding: const EdgeInsets.all(12),
@@ -68,23 +67,23 @@ class AboutMeButtonWidgets extends StatelessWidget {
             ),
           ),
         ),
-        // Container(
-        //   margin: const EdgeInsets.all(10),
-        //   child: OutlinedButton(
-        //     onPressed: () {
-        //       html.window.open(
-        //           'https://drive.google.com/file/d/1abY079fdgZ2VkNOAppX3KyY_wr3MuaGu/view?usp=sharing',
-        //           "pdf");
-        //     },
-        //     child: Padding(
-        //       padding: const EdgeInsets.all(12),
-        //       child: Text(
-        //         '   Resume   ',
-        //         style: TextStyle(color: Theme.of(context).primaryColor),
-        //       ),
-        //     ),
-        //   ),
-        // ),
+        Container(
+          margin: const EdgeInsets.all(10),
+          child: OutlinedButton(
+            onPressed: () {
+              html.window.open(
+                  'https://drive.google.com/file/d/1abY079fdgZ2VkNOAppX3KyY_wr3MuaGu/view?usp=sharing',
+                  "pdf");
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Text(
+                '   Resume   ',
+                style: TextStyle(color: Theme.of(context).primaryColor),
+              ),
+            ),
+          ),
+        ),
       ],
     );
   }
@@ -107,7 +106,7 @@ class AboutMeTextDetail extends StatelessWidget {
         CustomizeUnderlineText(size: size, title: 'About Me'),
         SizedBox(
           child: SelectableText(
-            '''I am Hassan Khan and Hafiz-e-Quran since 20 years. I have tought Quran to lot of students. I have around 10+ years of teaching experience and for last two years I have been teaching Online during lockdown. Currently, I am teaching many students from Canada.''',
+            '''I am an enthusiastic programmer with the experience in Android/iOS mobile app development. I have experiance in Flutter, Firebase and have knowledge about different API's Integrations as well. I am always eager to learn new tools and techniques and the best part is that I enjoy it all. This is just an intro because I am far more than that.''',
             style: TextStyle(
               fontWeight: FontWeight.w300,
             ),
